@@ -1,0 +1,85 @@
+html {
+  scroll-behavior: smooth;
+}
+
+/* App Container */
+.App {
+  text-align: center;
+  padding: 2rem;
+}
+
+/* Header */
+h1 {
+  font-size: 3rem;
+  color: #2d2d2d;
+  margin-bottom: 2rem;
+  text-transform: uppercase;
+}
+
+/* Cover Section */
+.cover {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  text-align: center;
+  color: white;
+  padding: 30px 0;
+  box-shadow: inset 0 0 100px rgba(0, 0, 0, 0.5);
+}
+
+.cover h1 {
+  font-size: 3rem;
+  margin-bottom: 15px;
+}
+.cover p {
+  font-size: 1.5rem;
+  text-shadow: 1px 1px 2px rgba(125, 120, 120, 0.8);
+}
+
+/* Gallery Grid */
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1.5rem;
+  padding: 0 1rem;
+  margin-bottom: 2rem;
+}
+
+/* Image Card */
+.image-card {
+  background: #fff;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.image-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* Image Styling */
+.image-card img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.image-card:hover img {
+  transform: scale(1.05);
+}
+
+
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+  h1 {
+    font-size: 2.5rem;
+  }
+
+  .gallery {
+    padding: 0 0.5rem;
+  }
+}
