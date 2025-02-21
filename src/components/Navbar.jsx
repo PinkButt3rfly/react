@@ -1,21 +1,46 @@
-import React from 'react';
-import { Navbar, Nav, Container } from 'react-bootstrap';
+import React from "react";
+import { Navbar, Nav, Container, Form, FormControl } from "react-bootstrap";
 
 const NavigationBar = () => {
   return (
-    <Navbar variant="dark" expand="lg" className="w-100">
+    <Navbar expand="lg" className="w-100 py-3 shadow-sm">
       <Container fluid>
-        <Navbar.Brand href="#">GalleryOfSeasons</Navbar.Brand>
-        <Navbar.Toggle aria-controls="navbarNav" />
+        {/* Brand Name */}
+        <Navbar.Brand href="#" className="fw-bold fs-4 text-light">
+          GalleryOfSeasons
+        </Navbar.Brand>
+
+        {/* Navbar Toggle Button */}
+        <Navbar.Toggle aria-controls="navbarNav" className="border-0" />
+
+        {/* Navbar Items */}
         <Navbar.Collapse id="navbarNav">
-          <Nav className="ms-auto">
-            <Nav.Link href="#home">Home</Nav.Link>
-            <Nav.Link href="#features">Features</Nav.Link>
-            <Nav.Link href="#uploads">Upload</Nav.Link>
-            <Nav.Link href="#gallery">About</Nav.Link>
-            <Nav.Link href="login.html">Login/Sign-Up</Nav.Link>
-            <Nav.Link href="taskManager.html">Task Manager</Nav.Link>
+          <Nav className="ms-auto d-flex align-items-center">
+            <Nav.Link href="#home" className="mx-3 text-light fw-semibold">
+              Home
+            </Nav.Link>
+            <Nav.Link href="#features" className="mx-3 text-light fw-semibold">
+              Features
+            </Nav.Link>
+            <Nav.Link href="/login" className="mx-3 text-light fw-semibold">
+              Login / Sign-Up
+            </Nav.Link>
           </Nav>
+
+          {/* Modernized Search Bar (Rounded and Stylish) */}
+          <Form className="d-flex ms-auto mt-3 mt-lg-0" style={{ maxWidth: "300px" }}>
+            <FormControl
+              type="search"
+              placeholder="Search Gallery..."
+              className="rounded-pill px-3 py-2 border-0"
+              style={{
+                backgroundColor: "#f8f9fa",
+                color: "#333",
+                fontSize: "14px",
+                outline: "none",
+              }}
+            />
+          </Form>
         </Navbar.Collapse>
       </Container>
     </Navbar>
@@ -23,5 +48,3 @@ const NavigationBar = () => {
 };
 
 export default NavigationBar;
-
-

@@ -1,3 +1,4 @@
+
 import React from "react";
 import { Container, Row, Col, Carousel } from "react-bootstrap";
 
@@ -36,11 +37,10 @@ const carousel2Images = [feature2a, feature2b, feature2c, feature2d, feature2e, 
 const carousel3Images = [feature3a, feature3b, feature3c, feature3d, feature3e, feature3f];
 const carousel4Images = [feature4a, feature4b, feature4c, feature4d, feature4e, feature4f];
 
-
 // Carousel Component (Displays 3 images per slide)
 const CarouselComponent = ({ images }) => {
   return (
-    <Carousel interval={3000} indicators={false} controls={true}>
+    <Carousel interval={4000} indicators={false} controls={true} className="gallery-carousel">
       {Array.from({ length: Math.ceil(images.length / 3) }).map((_, index) => (
         <Carousel.Item key={index}>
           <div className="d-flex justify-content-center gap-3">
@@ -48,9 +48,8 @@ const CarouselComponent = ({ images }) => {
               <img
                 key={imgIndex}
                 src={image}
-                className="d-block w-30 rounded"
+                className="gallery-image"
                 alt={`Slide ${index * 3 + imgIndex + 1}`}
-                style={{ width: "30%", height: "200px", objectFit: "cover" }}
               />
             ))}
           </div>
@@ -62,26 +61,26 @@ const CarouselComponent = ({ images }) => {
 
 const Gallery = () => {
   return (
-    <Container className="gallery py-5">
-      <h2 className="features text-center mb-4">Features</h2>
+    <Container className="gallery py-5 text-center">
+      <h2 className="gallery-title">Seasonal Gallery</h2>
 
-      <div className="mb-5">
-        <h3 className="text-center mb-3">Winter</h3>
+      <div className="gallery-section">
+        <h3 className="gallery-subtitle">Winter</h3>
         <CarouselComponent images={carousel1Images} />
       </div>
 
-      <div className="mb-5">
-        <h3 className="text-center mb-5">Summer</h3>
+      <div className="gallery-section">
+        <h3 className="gallery-subtitle">Summer</h3>
         <CarouselComponent images={carousel2Images} />
       </div>
 
-      <div className="mb-5">
-        <h3 className="text-center mb-5">Autumn</h3>
+      <div className="gallery-section">
+        <h3 className="gallery-subtitle">Autumn</h3>
         <CarouselComponent images={carousel3Images} />
       </div>
 
-      <div className="mb-5">
-        <h3 className="text-center">Spring</h3>
+      <div className="gallery-section">
+        <h3 className="gallery-subtitle">Spring</h3>
         <CarouselComponent images={carousel4Images} />
       </div>
     </Container>

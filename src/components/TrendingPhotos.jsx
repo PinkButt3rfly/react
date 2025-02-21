@@ -9,9 +9,9 @@ import trending3 from "../assets/images/s2.jpeg";
 
 // Data for trending photos
 const trendingPhotos = [
-  { id: 1, src: trending1, likes: 120, comments: 45 },
-  { id: 2, src: trending2, likes: 98, comments: 30 },
-  { id: 3, src: trending3, likes: 75, comments: 20 },
+  { id: 1, src: trending1, likes: 1020, comments: 45 },
+  { id: 2, src: trending2, likes: 398, comments: 30 },
+  { id: 3, src: trending3, likes: 275, comments: 20 },
 ];
 
 const TrendingPhotos = () => {
@@ -22,18 +22,18 @@ const TrendingPhotos = () => {
         <Row className="g-4">
           {trendingPhotos.map((photo) => (
             <Col key={photo.id} md={4}>
-              <div className="photo-card shadow-sm rounded overflow-hidden">
+              <div className="photo-card position-relative overflow-hidden rounded-3 shadow-sm">
                 <img
                   src={photo.src}
                   alt="Trending"
                   className="img-fluid w-100"
-                  style={{ height: "250px", objectFit: "cover" }}
+                  style={{ height: "280px", objectFit: "cover" }}
                 />
-                <div className="photo-info d-flex justify-content-between p-2 bg-light">
-                  <span className="likes">
+                <div className="photo-overlay d-flex align-items-center justify-content-between p-3">
+                  <span className="likes d-flex align-items-center gap-1">
                     <FaHeart className="text-danger" /> {photo.likes}
                   </span>
-                  <span className="comments">
+                  <span className="comments d-flex align-items-center gap-1">
                     <FaComment className="text-primary" /> {photo.comments}
                   </span>
                 </div>

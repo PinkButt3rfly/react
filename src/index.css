@@ -83,58 +83,43 @@ a:hover {
   text-shadow: 1px 1px 2px rgba(125, 120, 120, 0.8);
 }
 
-.trending {
-  background-color: #573c27;
-  color: white;
-}
 .trending-photos {
   padding: 60px 0;
-  background-color: #fff;
+  background-color: #FFFFFF;
 }
+
 .trending-photos .trending {
   text-align: center;
   font-size: 2rem;
-  background-color: #573c27;
-  color: white;
+  font-weight: 600;
+  color: #333333;
   margin-bottom: 30px;
 }
-.trending-photos .photo-card {
-  background: white;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  overflow: hidden;
+
+.photo-card {
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-  position: relative;
+  background: #FFFFFF;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
 }
-.trending-photos .photo-card img {
+
+.photo-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+.photo-overlay {
+  background: rgba(255, 255, 255, 0.8);
+  position: absolute;
+  bottom: 0;
   width: 100%;
-  height: 250px;
-  object-fit: cover;
-}
-.trending-photos .photo-card .photo-info {
   display: flex;
   justify-content: space-between;
-  padding: 10px 15px;
-  background: #f8f9fa;
   font-size: 1rem;
-  font-weight: bold;
-  color: #573c27;
+  font-weight: 500;
 }
-.trending-photos .photo-card .photo-info .likes, .trending-photos .photo-card .photo-info .comments {
-  display: flex;
-  align-items: center;
-  gap: 5px;
-}
-.trending-photos .photo-card .photo-info i {
-  color: #d9534f;
-}
-.trending-photos .photo-card .photo-info .comments i {
-  color: #007bff;
-}
-.trending-photos .photo-card:hover {
-  transform: scale(1.03);
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
-}
+
 
 .recent-uploads {
   padding: 60px 0;
@@ -196,28 +181,41 @@ a:hover {
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
 }
 
-.features {
-  background-color: #573c27;
-  color: white;
-  padding-top: 10px;
-  padding-bottom: 10px;
+.gallery-title {
+  font-size: 2rem;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 20px;
 }
 
-.carousel-item img {
-  border-radius: 10px;
+.gallery-subtitle {
+  font-size: 1.5rem;
+  font-weight: 500;
+  color: #666;
+  margin-bottom: 15px;
+}
+
+.gallery-section {
+  margin-bottom: 50px;
+}
+
+.gallery-carousel .carousel-item {
+  transition: transform 0.5s ease-in-out;
+}
+
+.gallery-image {
+  width: 30%;
   height: 200px;
   object-fit: cover;
-  margin: 8px;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease-in-out;
 }
-.carousel-item img:hover {
+
+.gallery-image:hover {
   transform: scale(1.05);
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
 }
-.carousel-item .carousel-control-prev-icon, .carousel-item .carousel-control-next-icon {
-  background-color: rgba(0, 0, 0, 0.5);
-  border-radius: 50%;
-}
+
 
 
 /* Footer Styles (Fixed at Bottom) */
@@ -245,19 +243,22 @@ h1 {
 }
 
 button {
-  border-radius: 8px;
+  border-radius: 20px;
   border: 1px solid transparent;
   padding: 0.6em 1.2em;
   font-size: 1em;
   font-weight: 500;
   font-family: inherit;
-  background-color: #1a1a1a;
+  color: white;
+  background-color: #573c27;
   cursor: pointer;
   transition: border-color 0.25s;
 }
 
 button:hover {
-  border-color: #646cff;
+  border-color: whitesmoke;
+  color: black;
+  background-color: whitesmoke;
 }
 
 button:focus,
