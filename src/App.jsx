@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
+import { Routes, Route, Navigate } from "react-router-dom";  // ❌ Removed BrowserRouter
 import Navbar from "./components/Navbar";
 import Cover from "./components/Cover";
 import TrendingPhotos from "./components/TrendingPhotos";
@@ -16,30 +16,28 @@ function App() {
   const [userAuthenticated, setUserAuthenticated] = useState(false);
 
   return (
-    <Router>
-      <div className="d-flex flex-column min-vh-100">
-        {/* Pass authentication state to Navbar */}
-        <Navbar userAuthenticated={userAuthenticated} setUserAuthenticated={setUserAuthenticated} />
+    <div className="d-flex flex-column min-vh-100">
+      {/* Pass authentication state to Navbar */}
+      <Navbar userAuthenticated={userAuthenticated} setUserAuthenticated={setUserAuthenticated} />
 
-        <Routes>
-          <Route path="/" element={
-            <>
-              <Cover />
-              <TrendingPhotos />
-              <Gallery />
-            </>
-          } />
-          <Route path="/login" element={<Login setUserAuthenticated={setUserAuthenticated} />} />
-          <Route path="/signup" element={<SignUp />} />
-          <Route 
-            path="/dashboard" 
-            element={userAuthenticated ? <Dashboard /> : <Navigate to="/login" />} 
-          />
-        </Routes>
+      <Routes>
+        <Route path="/" element={
+          <>
+            <Cover />
+            <TrendingPhotos />
+            <Gallery />
+          </>
+        } />
+        <Route path="/login" element={<Login setUserAuthenticated={setUserAuthenticated} />} />
+        <Route path="/signup" element={<SignUp />} />
+        <Route 
+          path="/dashboard" 
+          element={userAuthenticated ? <Dashboard /> : <Navigate to="/login" />} 
+        />
+      </Routes>
 
-        <Footer />
-      </div>
-    </Router>
+      <Footer />
+    </div>
   );
 }
 
