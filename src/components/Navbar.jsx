@@ -1,48 +1,59 @@
 import React from "react";
-import { Navbar, Nav, Container, Image, Dropdown } from "react-bootstrap";
-import { FaBars } from "react-icons/fa";
-import profilePic from "../assets/images/s1.jpeg"; 
-import "../Styles/Navbar.css";
+import { Link } from "react-router-dom";
 
-const NavigationBar = () => {
+const Navbar = ({ userAuthenticated, setUserAuthenticated }) => {
+  const handleLogout = () => {
+    setUserAuthenticated(false);
+  };
+
   return (
-    <Navbar expand="lg" className="navbar-custom">
-      <Container>
-        {/* Brand Logo */}
-        <Navbar.Brand href="/" className="navbar-brand">
-          <span className="brand-text">Seasons Gallery</span>
-        </Navbar.Brand>
+    <nav className="navbar navbar-expand-lg navbar-light bg-light">
+      <div className="container">
+        <Link className="navbar-brand" to="/">
+          SeasonsGallery
+        </Link>
 
-        {/* Toggle Button for Mobile */}
-        <Navbar.Toggle aria-controls="basic-navbar-nav">
-          <FaBars className="toggle-icon" />
-        </Navbar.Toggle>
+        <button
+          className="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+        >
+          <span className="navbar-toggler-icon"></span>
+        </button>
 
-        {/* Navbar Links */}
-        <Navbar.Collapse id="basic-navbar-nav">
-          <Nav className="ms-auto">
-            <Nav.Link href="/">Home</Nav.Link>
-            <Nav.Link href="/gallery">Gallery</Nav.Link>
-            <Nav.Link href="/upload">Upload</Nav.Link>
-          </Nav>
+        <div className="collapse navbar-collapse" id="navbarNav">
+          <ul className="navbar-nav ms-auto">
+            <li className="nav-item">
+              <Link className="nav-link" to="/">Home</Link>
+            </li>
 
-          {/* Profile Dropdown */}
-          <Dropdown align="end">
-            <Dropdown.Toggle className="profile-dropdown" id="dropdown-basic">
-              <Image src={profilePic} roundedCircle className="profile-pic" />
-            </Dropdown.Toggle>
-
-            <Dropdown.Menu>
-              <Dropdown.Item href="/profile">Profile</Dropdown.Item>
-              <Dropdown.Item href="/settings">Settings</Dropdown.Item>
-              <Dropdown.Divider />
-              <Dropdown.Item href="/logout">Logout</Dropdown.Item>
-            </Dropdown.Menu>
-          </Dropdown>
-        </Navbar.Collapse>
-      </Container>
-    </Navbar>
+            {!userAuthenticated ? (
+              <>
+                <li className="nav-item">
+                  <Link className="nav-link" to="/login">Login</Link>
+                </li>
+                <li className="nav-item">
+                  <Link className="nav-link" to="/signup">Sign Up</Link>
+                </li>
+              </>
+            ) : (
+              <>
+                <li className="nav-item">
+                  <Link className="nav-link" to="/dashboard">Dashboard</Link>
+                </li>
+                <li className="nav-item">
+                  <button className="btn btn-danger" onClick={handleLogout}>
+                    Logout
+                  </button>
+                </li>
+              </>
+            )}
+          </ul>
+        </div>
+      </div>
+    </nav>
   );
 };
 
-export default NavigationBar;
+export default Navbar;

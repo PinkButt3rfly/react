@@ -1,11 +1,11 @@
-/* Navbar Container */
-.navbar-custom {
-    background: #fff;
+/* Navbar Styles */
+.navbar {
+    background-color: #fff;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
     padding: 10px 20px;
-    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
   }
   
-  /* Brand Logo */
+  /* Navbar Brand */
   .navbar-brand {
     font-size: 1.5rem;
     font-weight: bold;
@@ -13,58 +13,41 @@
   }
   
   /* Navbar Links */
-  .nav-link {
+  .navbar-nav .nav-link {
     font-size: 1rem;
-    font-weight: 500;
-    color: #444 !important;
-    margin-right: 15px;
-  }
-  
-  .nav-link:hover {
-    color: #007bff !important;
-  }
-  
-  /* Hamburger Icon */
-  .toggle-icon {
-    font-size: 24px;
     color: #333;
+    margin-right: 15px;
+    transition: color 0.3s ease-in-out;
   }
   
-  /* Profile Dropdown */
-  .profile-dropdown {
-    border: none;
-    background: none;
-    padding: 0;
+  .navbar-nav .nav-link:hover {
+    color: #007bff;
   }
   
-  .profile-pic {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    object-fit: cover;
+  /* Logout Button */
+  .navbar-nav .btn-danger {
+    font-size: 1rem;
+    padding: 5px 10px;
+    border-radius: 5px;
   }
   
-  /* Responsive */
+  /* Responsive Navbar */
   @media (max-width: 768px) {
-    .navbar-custom {
-      padding: 10px;
-    }
-  
-    .navbar-collapse {
-      background: #fff;
-      padding: 10px;
-    }
-  
-    .nav-link {
-      font-size: 1rem;
-      display: block;
+    .navbar-nav {
       text-align: center;
-      margin: 10px 0;
     }
   
-    .profile-dropdown {
-      display: flex;
-      justify-content: center;
+    .navbar-nav .nav-item {
+      margin-bottom: 10px;
+    }
+  
+    .navbar-toggler {
+      border: none;
+    }
+  
+    .navbar-toggler:focus {
+      outline: none;
+      box-shadow: none;
     }
   }
   
