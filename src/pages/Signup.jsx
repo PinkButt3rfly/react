@@ -2,25 +2,26 @@ import React, { useState } from "react";
 import { Container, Form, Button } from "react-bootstrap";
 import { Link, useNavigate } from "react-router-dom";
 
-const Login = () => {
+const Signup = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
 
-  const handleLogin = (e) => {
+  const handleSignup = (e) => {
     e.preventDefault();
-    // Implement authentication logic here
-    console.log("Logging in with:", { username, password });
 
-    // Redirect to user dashboard on successful login
-    navigate("/");
+    // Save user data in localStorage
+    localStorage.setItem("user", JSON.stringify({ username, password }));
+
+    alert("Signup successful! You can now log in.");
+    navigate("/login");
   };
 
   return (
     <Container className="d-flex justify-content-center align-items-center vh-100">
       <div className="p-4 shadow rounded bg-white w-50">
-        <h2 className="text-center mb-4">Login</h2>
-        <Form onSubmit={handleLogin}>
+        <h2 className="text-center mb-4">Sign Up</h2>
+        <Form onSubmit={handleSignup}>
           <Form.Group className="mb-3">
             <Form.Control
               type="text"
@@ -40,15 +41,15 @@ const Login = () => {
             />
           </Form.Group>
           <Button variant="dark" type="submit" className="w-100">
-            Login
+            Sign Up
           </Button>
         </Form>
         <p className="text-center mt-3">
-          Don't have an account? <Link to="/signup">Sign Up</Link>
+          Already have an account? <Link to="/login">Login</Link>
         </p>
       </div>
     </Container>
   );
 };
 
-export default Login;
+export default Signup;

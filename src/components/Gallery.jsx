@@ -20,9 +20,9 @@ import feature2f from "../assets/images/s3.jpeg";
 import feature3a from "../assets/images/1.jpeg";
 import feature3b from "../assets/images/2.jpeg";
 import feature3c from "../assets/images/3.jpeg";
-import feature3d from "../assets/images/1.jpeg";
-import feature3e from "../assets/images/1.jpeg";
-import feature3f from "../assets/images/1.jpeg";
+import feature3d from "../assets/images/4.jpeg";
+import feature3e from "../assets/images/5.jpeg";
+import feature3f from "../assets/images/6.jpeg";
 
 import feature4a from "../assets/images/sp4.jpeg";
 import feature4b from "../assets/images/sp2.jpeg";

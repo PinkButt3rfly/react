@@ -51,18 +51,6 @@ a:hover {
 }
 
 
-
-/* Navbar Styles */
-.navbar {
-  background-color: #573c27;
-}
-.navbar .navbar-brand, .navbar .nav-link {
-  color: white !important;
-}
-.navbar .navbar-brand:hover, .navbar .nav-link:hover {
-  color: #ffcc00 !important;
-}
-
 /* Cover Section */
 .cover {
   background-size: cover;

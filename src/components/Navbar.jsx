@@ -1,46 +1,44 @@
 import React from "react";
-import { Navbar, Nav, Container, Form, FormControl } from "react-bootstrap";
+import { Navbar, Nav, Container, Image, Dropdown } from "react-bootstrap";
+import { FaBars } from "react-icons/fa";
+import profilePic from "../assets/images/s1.jpeg"; 
+import "../Styles/Navbar.css";
 
 const NavigationBar = () => {
   return (
-    <Navbar expand="lg" className="w-100 py-3 shadow-sm">
-      <Container fluid>
-        {/* Brand Name */}
-        <Navbar.Brand href="#" className="fw-bold fs-4 text-light">
-          GalleryOfSeasons
+    <Navbar expand="lg" className="navbar-custom">
+      <Container>
+        {/* Brand Logo */}
+        <Navbar.Brand href="/" className="navbar-brand">
+          <span className="brand-text">Seasons Gallery</span>
         </Navbar.Brand>
 
-        {/* Navbar Toggle Button */}
-        <Navbar.Toggle aria-controls="navbarNav" className="border-0" />
+        {/* Toggle Button for Mobile */}
+        <Navbar.Toggle aria-controls="basic-navbar-nav">
+          <FaBars className="toggle-icon" />
+        </Navbar.Toggle>
 
-        {/* Navbar Items */}
-        <Navbar.Collapse id="navbarNav">
-          <Nav className="ms-auto d-flex align-items-center">
-            <Nav.Link href="#home" className="mx-3 text-light fw-semibold">
-              Home
-            </Nav.Link>
-            <Nav.Link href="#features" className="mx-3 text-light fw-semibold">
-              Features
-            </Nav.Link>
-            <Nav.Link href="/login" className="mx-3 text-light fw-semibold">
-              Login / Sign-Up
-            </Nav.Link>
+        {/* Navbar Links */}
+        <Navbar.Collapse id="basic-navbar-nav">
+          <Nav className="ms-auto">
+            <Nav.Link href="/">Home</Nav.Link>
+            <Nav.Link href="/gallery">Gallery</Nav.Link>
+            <Nav.Link href="/upload">Upload</Nav.Link>
           </Nav>
 
-          {/* Modernized Search Bar (Rounded and Stylish) */}
-          <Form className="d-flex ms-auto mt-3 mt-lg-0" style={{ maxWidth: "300px" }}>
-            <FormControl
-              type="search"
-              placeholder="Search Gallery..."
-              className="rounded-pill px-3 py-2 border-0"
-              style={{
-                backgroundColor: "#f8f9fa",
-                color: "#333",
-                fontSize: "14px",
-                outline: "none",
-              }}
-            />
-          </Form>
+          {/* Profile Dropdown */}
+          <Dropdown align="end">
+            <Dropdown.Toggle className="profile-dropdown" id="dropdown-basic">
+              <Image src={profilePic} roundedCircle className="profile-pic" />
+            </Dropdown.Toggle>
+
+            <Dropdown.Menu>
+              <Dropdown.Item href="/profile">Profile</Dropdown.Item>
+              <Dropdown.Item href="/settings">Settings</Dropdown.Item>
+              <Dropdown.Divider />
+              <Dropdown.Item href="/logout">Logout</Dropdown.Item>
+            </Dropdown.Menu>
+          </Dropdown>
         </Navbar.Collapse>
       </Container>
     </Navbar>
